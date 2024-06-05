@@ -16,12 +16,13 @@ import config from "./src/configs/db.config";
 import pkg from 'pg';
 
 const app = express();
-const port = 5432;
+const port = 5432; // ( http://localhost:5432 )
 const { Client} = pkg;
-
 // https://node-postgres.com/apis/client
 const client = new Client(config);
 await client.connect();
+
+
 
 let sql = 'SELECT * from provinces';
 let result = await client.query(sql);
@@ -32,3 +33,7 @@ console.log(result.rows)
 app.use(cors());
 app.use(express.json);
 //app.use('/front', express.static('public'));
+app.use('/api/event/', function (req,res) {
+
+})
+app.use()
