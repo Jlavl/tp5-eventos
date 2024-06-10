@@ -9,10 +9,10 @@ entity.id_user =
 ValidacionesHelper.getIntegerPositiveZeroOrDefault(req.user.id,0);
 
 */
-import  Express  from "express";
+import express from "express";
 import cors from "cors";
 
-import config from "./src/configs/db.config";
+import config from "./src/configs/DBconfig.js";
 import pkg from 'pg';
 
 const app = express();
@@ -24,7 +24,7 @@ await client.connect();
 
 
 
-let sql = 'SELECT * from provinces';
+let sql = `SELECT * from provinces`;
 let result = await client.query(sql);
 await client.end();
 // 'rows' es un array. rows[0] es el 1°er registro.
@@ -33,7 +33,12 @@ console.log(result.rows)
 app.use(cors());
 app.use(express.json);
 //app.use('/front', express.static('public'));
+//app.use('/api/event/', UserRouter);
 app.use('/api/event/', function (req,res) {
 
 })
-app.use()
+//app.use('/api/user', UserRouter);
+//app.use(unknownEndpoint);
+app.listen(port, () => {
+    console.log(`"server" Listening on port ${port}`);
+})

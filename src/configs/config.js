@@ -1,4 +1,3 @@
-import 'dotenv/config'
 const config = {
     host    : "localhost",
     database: "dai-events",
