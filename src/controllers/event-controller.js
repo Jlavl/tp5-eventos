@@ -1,7 +1,5 @@
 import { Router } from "express";
-
-
-import ProvinceService from '../services/province-service.js';
+import EventService from '../services/event-service.js';
 import {ReasonPhrases, StatusCodes} from 'http-status-codes';
 
 const router = Router();

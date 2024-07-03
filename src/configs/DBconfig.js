@@ -1,5 +1,5 @@
 import 'dotenv/config'
-const DBconfig = {
+const DBConfig = {
     host    : process.env.DB_HOST       ?? '',
     database: process.env.DB_DATABASE   ?? '',
     user    : process.env.DB_USER       ?? '',
@@ -7,4 +7,4 @@ const DBconfig = {
     port    : process.env.DB_PORT       ?? 5432
 }
 
-export default DBconfig;
+export default DBConfig;
