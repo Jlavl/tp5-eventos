@@ -27,7 +27,7 @@ router.get('/:id', async (req,res) =>{// /api/province/{id}
 })
 router.get('/:id/locations', async (req,res) =>{ 
     
-    let id = req.params.id;
+    let id_location = req.params.id;
     let respuesta
     const returnArray = await svc.getLocationById(id_location)
     if (returnArray != null){
