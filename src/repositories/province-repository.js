@@ -41,7 +41,7 @@ export default class ProvinceRepository { // Traer todas las provincias - || FUN
         try{
             await client.connect();
             const sql = `SELECT * from locations WHERE id_province = $1`;
-            const values = [id]
+            const values = [id_location]
             const result = await client.query(sql, values);
             await client.end();
             returnArray = result.rows;
