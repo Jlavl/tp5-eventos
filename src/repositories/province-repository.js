@@ -51,7 +51,19 @@ export default class ProvinceRepository { // Traer todas las provincias - || FUN
         return returnArray;
     }
     createAsync = async(entity) => {
-        
+        let returnArray = null;
+        const client = new Client(DBConfig);
+
+        try{
+            await client.connect();
+            const sql = `INSERT into provinces(id, name, full_name, latitude, longitude, display_order) Values ($1,$2,$3,$4,$5)`;
+            const values = [id, name, full_name, latitude, longitude, display_order]
+            const result = await client.query(sql, values);
+            await client.end();
+            returnArray = result.rows;
+        } catch (error) {
+            console.log(error);
+        }
     }
     updateAsync = async(entity) => {/*hacer*/}
     deleteByIdAsync = async(id) => {/*hacer*/}   
