@@ -6,7 +6,7 @@ router.post('/:id/enrollment', AuthenticationMiddleware.AuthMiddleware,any)
 //req.user.Firstname
 
 entity.id_user =
-ValidacionesHelper.getIntegerPositiveZeroOrDefault(req.user.id,0);
+ValidacionesHelper.getIntegerPositiveZeroOrDefault(req.user.id,0);                                                                                                                                                                                              r
 
 */
 import express from "express";

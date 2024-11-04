@@ -49,12 +49,27 @@ router.post('', async (req,res) =>{
     return respuesta;
 })
 router.put('', async (req,res) =>{
-    svc.updateAsync()
-    /* Hacer */
+    let respuesta;
+    const returnArray = await svc.updateAsync()
+    if (returnArray != null){
+        respuesta = res.status(200).json();
+    } else if(returnArray = null) {
+        respuesta = res.status(400).send('Pedido erroneo.');
+    }
+     else {
+        respuesta = res.status(404).send('Error interno.');
+    }
+    return respuesta;
 })
 router.delete('/:id', async (req,res) =>{
-    svc.deleteAsync()
-    /* Hacer */
+    let respuesta;
+    const returnArray = await svc.deleteAsync()
+    if (returnArray != null){
+        respuesta = res.status(200).json();
+    } else {
+        respuesta = res.status(404).send('Error interno.');
+    }
+    return respuesta;
 })
 
 
