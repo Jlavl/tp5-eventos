@@ -17,7 +17,7 @@ import pkg from 'pg';
 import ProvinceRouter from "./src/controllers/province-controller.js"
 
 const app = express();
-const port = 3000; // ( http://localhost:5432 )
+const port = 3000; // ( http://localhost:3000 )
 const { Client} = pkg;
 // https://node-postgres.com/apis/client
 const client = new Client(config);

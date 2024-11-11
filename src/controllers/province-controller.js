@@ -38,7 +38,7 @@ router.get('/:id/locations', async (req,res) =>{
     return respuesta;
 
 })
-router.post('', async (req,res) =>{
+router.post('/', async (req,res) =>{
     let respuesta;
     const returnArray = await svc.createAsync()
     if (returnArray != null){
@@ -48,7 +48,7 @@ router.post('', async (req,res) =>{
     }
     return respuesta;
 })
-router.put('', async (req,res) =>{
+router.put('/', async (req,res) =>{
     let respuesta;
     const returnArray = await svc.updateAsync()
     if (returnArray != null){

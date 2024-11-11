@@ -60,11 +60,21 @@ export default class ProvinceRepository { // Traer todas las provincias - || FUN
             const values = [id, name, full_name, latitude, longitude, display_order]
             const result = await client.query(sql, values);
             await client.end();
-            returnArray = result.rows;
         } catch (error) {
             console.log(error);
         }
     }
-    updateAsync = async(entity) => {/*hacer*/}
+    updateAsync = async(entity) => {
+        let returnArray = null;
+        const client = new Client(DBConfig);
+        try{
+            const sql = `Update provinces Set id=$1, name=$2, full_name=$3, latitude=$4, longitude=$5, display_order=$6`;
+            const values = [entity.id, entity.name, entity.full_name, entity.latitude, entity.longitude, entity.display_order]
+            returnArray = await pgHelper.requestCount(sql, values);
+        } catch (error) {
+            console.log(error);
+        }
+        return returnArray;
+    }
     deleteByIdAsync = async(id) => {/*hacer*/}   
 }
